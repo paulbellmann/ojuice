@@ -1,0 +1,16 @@
+#left_pencil {
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+.list-group, .insert_form, .messages {
+    max-width: 70%;
+}
+
+#log_in_form{
+    max-width: 30%
+}
+
+textarea {
+    resize: none;
+}
