@@ -3,22 +3,20 @@
     text-decoration: none;
 }
 
-.list-group, .insert_form, .messages {
-    max-width: 70%;
-}
-
-#log_in_form{
-    max-width: 30%
-}
-
-
-
-.todolist{
+.logform {
     background-color:#FFF;
     padding:20px 20px 10px 20px;
-    margin-top:30px;
+    max-width: 40%;
+    margin: auto;
 }
-.todolist h1{
+
+.todolist, .insform{
+    background-color:#FFF;
+    padding:20px 20px 10px 20px;
+    max-width: 80%;
+    margin: auto;
+}
+.todolist h1, .insform h1, .logform h2 {
     margin:0;
     padding-bottom:20px;
     text-align:center;
@@ -40,15 +38,4 @@ li.ui-state-default:last-child{
     background-color:#F4FCE8;
     margin:0 -20px -10px -20px;
     padding: 10px 20px;
-}
-#done-items li{
-    padding:10px 0;
-    border-bottom:1px solid #ddd;
-    text-decoration:line-through;
-}
-#done-items li:last-child{
-    border-bottom:none;
-}
-#checkAll{
-    margin-top:10px;
 }

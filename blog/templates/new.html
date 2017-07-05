@@ -6,17 +6,23 @@
 
 {% block content %}
     <div class="container">
-        <h1>{{ title }}</h1>
-        <br>
-        <form class="insert_form" action="{% url 'create' %}">
-            <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">Title</span>
-              <input name="title" type="text" class="form-control" placeholder="Homework" aria-describedby="basic-addon1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="insform">
+                <h1>{{ title }}</h1>
+                <br>
+                <form class="insert_form" action="{% url 'create' %}">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Title</span>
+                      <input name="title" type="text" class="form-control" placeholder="Homework" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <textarea name="body" rows="5" class="form-control" placeholder="Page 1337"></textarea>
+                    <br>
+                    <button id="subb" type="submit" class="btn btn-success">Submit</button>
+                </form>
+                </div>
             </div>
-            <br>
-            <textarea name="body" rows="5" class="form-control" placeholder="Page 1337"></textarea>
-            <br>
-            <button id="subb" type="submit" class="btn btn-success">Submit</button>
-        </form>
+        </div>
     </div>
 {% endblock content %}

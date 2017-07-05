@@ -8,9 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div class="logform">
                 <h2 style="padding-bottom: 10px;">Login to  Your Account</h2>
+                </div>
             </div>
             <div class="col-md-12" id="log_in_form">
+              <div class="logform">
                 <form action="{% url 'logon' %}" method="POST"> {% csrf_token %}
                 <div class="input-group">
                   <span class="input-group-addon" id="basic-addon1">
@@ -28,6 +31,7 @@
                 <br>
                 <button id="subb" type="submit" class="btn btn-primary">Login</button>
                 </form>
+                </div>
             </div>
         </div>
         {% if messages %}

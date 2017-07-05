@@ -19,8 +19,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="todolist not-done">
+            <div class="col-md-12">
+                <div class="todolist">
                  <h1>{{title}}</h1>
                  <p>{{ discription }}</p>
                  <form action="{% url 'create' %}">
@@ -60,6 +60,8 @@
     </div>
 
     <script>
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
     function myFunction(id) {
         console.log(id);
         var url = "/blog/change_checked/?ID=" + parseInt(id)

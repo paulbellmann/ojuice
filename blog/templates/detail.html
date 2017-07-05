@@ -6,18 +6,24 @@
 
 {% block content %}
 <div class="container">
-    <h1>{{ title }}</h1>
-    <br>
-    <form class="insert_form" action="{% url 'modify' details.id %}">
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">Title</span>
-          <input name="title" type="text" class="form-control" placeholder="Homework" aria-describedby="basic-addon1" value="{{details.title}}">
+<div class="row">
+    <div class="col-md-12">
+        <div class="insform">
+        <h1>{{ title }}</h1>
+        <br>
+        <form class="insert_form" action="{% url 'modify' details.id %}">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">Title</span>
+              <input name="title" type="text" class="form-control" placeholder="Homework" aria-describedby="basic-addon1" value="{{details.title}}">
+            </div>
+            <br>
+            <textarea name="body" rows="5" class="form-control" placeholder="Page 1337" aria-describedby="basic-addon1">{{details.body}}</textarea>
+            <br>
+            <a href="{% url 'index' %}" class="btn btn-info" role="button">Back</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
         </div>
-        <br>
-        <textarea name="body" rows="5" class="form-control" placeholder="Page 1337" aria-describedby="basic-addon1">{{details.body}}</textarea>
-        <br>
-        <a href="{% url 'index' %}" class="btn btn-info" role="button">Back</a>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
+    </div>
+</div>
 </div>
 {% endblock content %}
