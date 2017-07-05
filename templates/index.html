@@ -5,17 +5,17 @@
 {% endblock title %}
 
 {% block content %}
+    {% if messages %}
     <div class="container">
-        {% if messages %}
-            <div class="messages">
+            <div class="messages todolist">
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}" role="alert">
                     {{ message }}
                 </div>
             {% endfor %}
             </div>
-        {% endif %}
     </div>
+    {% endif %}
 
     <div class="container">
         <div class="row">
