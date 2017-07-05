@@ -46,7 +46,7 @@ def create_todo(request):
     todo = Todo()
     if int(request.GET['quick']) == 1 and '#' in request.GET['title']:
         todo.title = request.GET['title'].split("#")[1].split(" ")[0]
-        todo.body = request.GET['title'].split(" ")[1]
+        todo.body = request.GET['title'].split(" ", 1)[1]
     else:
         todo.title = request.GET['title']
         todo.body = request.GET['body']
