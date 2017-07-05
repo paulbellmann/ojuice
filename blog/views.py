@@ -2,8 +2,6 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Todo
@@ -24,9 +22,6 @@ def blogIndex(request):
     else:
         print 'nicht logged in'
         return redirect('login')
-
-def blogHund(request):
-    return render(request, 'index.html', {'title': 'Test', 'discription': 'dies ist ein test'})
 
 @login_required
 def details(request, todo_id):
@@ -84,27 +79,4 @@ def change_checked(request):
     print todo.checked
     if request.user == todo.owner:
         todo.save()
-    return redirect('index')
-
-def log_in(request):
-    context = {
-        'title': 'Log In'
-    } 
-    return render(request, 'login.html', context)
-
-def log_on(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        messages.add_message(request, messages.SUCCESS, "Successfully logged in.")
-        return redirect('index')
-    else:
-        messages.add_message(request, messages.WARNING, "Wrong Password or Username!")
-        return redirect('login')
-
-@login_required
-def log_out(request):
-    logout(request)
-    return redirect('index')
+    #return redirect('index')
