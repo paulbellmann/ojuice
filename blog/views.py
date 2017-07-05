@@ -49,8 +49,12 @@ def new(request):
 @login_required
 def create_todo(request):
     todo = Todo()
-    todo.title = request.GET['title']
-    todo.body = request.GET['body']
+    if int(request.GET['quick']) == 1 and '#' in request.GET['title']:
+        todo.title = request.GET['title'].split("#")[1].split(" ")[0]
+        todo.body = request.GET['title'].split(" ")[1]
+    else:
+        todo.title = request.GET['title']
+        todo.body = request.GET['body']
     todo.owner = request.user
     if todo.title and todo.body:
         todo.save()

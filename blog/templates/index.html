@@ -24,14 +24,15 @@
                  <h1>{{title}}</h1>
                  <p>{{ discription }}</p>
                  <form action="{% url 'create' %}">
-                    <input name="title" type="text" class="form-control add-todo" placeholder="Add quick todo">
+                    <input name="title" type="text" class="form-control add-todo" placeholder="Add quick todo (#Title Body)">
+                    <input name="quick" type="hidden" value="1">
                     <input name="body" type="hidden" value=" ">
                  </form>
 
-                        <hr>
-                        <ul id="sortable" class="list-unstyled">
-                        {% for todo in todos %}
-                        <li class="ui-state-default">
+                            <hr>
+                            <ul id="sortable" class="list-unstyled">
+                            {% for todo in todos %}
+                            <li class="ui-state-default">
                             <div class="checkbox">
                                 <label>
                                     {% if todo.checked %}
