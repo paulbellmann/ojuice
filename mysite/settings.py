@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-LOGIN_URL = 'login' 
+LOGIN_URL = 'login'
+
+STATIC_ROOT = '/blog/static/'
 
 
 # Application definition

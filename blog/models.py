@@ -12,6 +12,7 @@ class Todo(models.Model):
     body = models.CharField(max_length=255)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    checked = models.BooleanField()
 
     def __str__(self):
-        return self.title
+        return "%s: %s" % (self.title, self.body)

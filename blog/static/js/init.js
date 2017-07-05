@@ -1,3 +1,8 @@
 $(function() {
-    console.log('ready!');
+    console.log('rseady!');
+
+    function myFunction(id) {
+        console.log(id);
+    };
+
 });

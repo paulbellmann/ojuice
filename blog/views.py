@@ -14,7 +14,7 @@ def blogIndex(request):
     if request.user.is_authenticated:
         todos = Todo.objects.filter(owner=request.user.id)
         context = {
-            'title': 'ToDos',
+            'title': 'Todos',
             'todos': todos
         }
         print request.session.session_key
@@ -68,6 +68,16 @@ def modify_todo(request, todo_id):
     todo = Todo.objects.get(pk=todo_id)
     todo.title = request.GET['title']
     todo.body = request.GET['body']
+    if request.user == todo.owner:
+        todo.save()
+    return redirect('index')
+
+@login_required
+def change_checked(request):
+    todo = Todo.objects.get(pk=request.GET['ID'])
+    print todo.checked
+    todo.checked = not todo.checked
+    print todo.checked
     if request.user == todo.owner:
         todo.save()
     return redirect('index')
