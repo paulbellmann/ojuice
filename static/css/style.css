@@ -104,6 +104,17 @@ li.ui-state-default:last-child{
     padding: 10px 20px;
 }
 
+.navbar_button{
+    box-shadow: inset 0 0 0 1px #404B55;
+    border-radius: 4px;
+    padding: 10px 12px;
+}
+.navbar-brand{
+    padding: 15px 5px 15px 15px;
+    font-weight: 600;
+    color: #606060;
+}
+
 @media screen and (max-width: 1024px) {
     .logform, #message_login{
         max-width: 60%;
@@ -118,7 +129,7 @@ li.ui-state-default:last-child{
 }
 
 @media screen and (max-width: 500px) {
-    .todolist, .insform, .logform, #message_login{
+    .todolist, .insform, .logform, #message_login, #message_list{
         max-width: 100%;
     }
     .outer_wrap{
