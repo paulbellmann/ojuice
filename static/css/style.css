@@ -59,8 +59,8 @@ body{
 
 .logform {
     background-color:#FFF;
-    padding:20px 20px 10px 20px;
-    max-width: 40%;
+    padding: 35px 105px 60px 105px;
+    max-width: 45%;
     margin: auto;
 
     border-radius: 3px;
@@ -72,6 +72,9 @@ body{
     padding:20px 20px 10px 20px;
     max-width: 60%;
     margin: auto;
+
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px #d8d8d8;
 }
 .todolist h1, .insform h1 {
     margin:0;
@@ -97,12 +100,35 @@ li.ui-state-default:last-child{
     padding: 10px 20px;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 1024px) {
+    .logform{
+        max-width: 60%;
+        padding: 35px 65px 60px 65px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .logform{
+        max-width: 90%;
+        padding: 35px 50px 35px 50px
+    }
+}
+
+@media screen and (max-width: 500px) {
     .todolist, .insform, .logform, #message_login{
         max-width: 100%;
     }
     .outer_wrap{
         padding-top: 40px; 
+    }
+    .logform {
+        padding: 20px 20px 10px 20px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .logform{
+        padding: 20px 10px 10px 10px;
     }
 }
 
