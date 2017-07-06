@@ -5,15 +5,14 @@
 {% endblock title %}
 
 {% block content %}
-<div class="container">
+<div class="container outer_wrap">
     <div class="row">
         <div class="col-md-12">
+
             <div class="logform">
-                <h2 style="padding-bottom: 10px;">Login to  Your Account</h2>
-            </div>
-        </div>
-        <div class="col-md-12" id="log_in_form">
-            <div class="logform">
+                <h2 class="login_first">Login to  Your Account</h2>
+                <!-- <h5 class="login_second">secondary text</h5> -->
+                <h5 class="login_third">Enter your <b>username</b> and <b>password.</b></h5>
                 <form action="{% url 'logon' %}" method="POST"> {% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">
@@ -29,19 +28,28 @@
                         <input name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
                     </div>
                     <br>
-                    <button id="subb" type="submit" class="btn btn-primary">Login</button>
+                    <button id="subb" type="submit" class="btn btn-primary btn-lg go_button">Login</button>
                 </form>
+                <div class="last">
+                    <!-- <label class="pull-left"><input type="checkbox">&nbsp;Keep me signed in</label> -->
+                    <input class="pull-left" type="checkbox" id="stay"><label id="stay_label" for="stay">kkllklk</label>
+                    <a class="pull-right" href="#">Keep me signed in</a>
+                </div>
             </div>
         </div>
     </div>
     {% if messages %}
-        <div class="messages logform">
+        <div class="row">
+        <div class="col-md-12">
+        <div id="message_login">
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>{{message.tags|capfirst}}! </strong>{{ message }}
-            </div>
             {% endfor %}
+        </div>
+        </div>
+        </div>
         </div>
     {% endif %}
 </div>

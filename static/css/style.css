@@ -1,3 +1,57 @@
+/* Custom colors
+-------------------------------------------------- */
+body{
+  background-color: #F9F9F9;
+  color: #555459;
+}
+.navbar-default {
+    background-color: #fff;
+    border-color: #f3f3f3;
+}
+.footer{
+    background-color: #fff;
+}
+/* -------------------------------------------------- */
+
+
+/* quick and dirty
+-------------------------------------------------- */
+.outer_wrap{
+    padding-top: 100px; 
+}
+.login_first{
+    margin:0;
+    text-align:center;
+    padding-bottom: 20px;
+}
+.login_second{
+    margin:0;
+    padding-bottom:25px;
+    text-align:center;
+}
+.login_third{
+    margin:0;
+    text-align:center;
+    padding-bottom: 25px;
+}
+.go_button{
+    width: 100%;
+}
+.last{
+    padding-top: 15px;
+}
+#stay_label{
+    padding-left: 10px;
+    font-weight: 600px;
+}
+#message_login{
+    max-width: 40%;
+    margin: auto;
+    padding-top: 20px;
+}
+/* -------------------------------------------------- */
+
+
 #left_pencil {
     padding-right: 5px;
     text-decoration: none;
@@ -8,6 +62,9 @@
     padding:20px 20px 10px 20px;
     max-width: 40%;
     margin: auto;
+
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px #d8d8d8;
 }
 
 .todolist, .insform{
@@ -16,7 +73,7 @@
     max-width: 60%;
     margin: auto;
 }
-.todolist h1, .insform h1, .logform h2 {
+.todolist h1, .insform h1 {
     margin:0;
     padding-bottom:20px;
     text-align:center;
@@ -41,8 +98,11 @@ li.ui-state-default:last-child{
 }
 
 @media screen and (max-width: 580px) {
-    .todolist, .insform, .logform {
+    .todolist, .insform, .logform, #message_login{
         max-width: 100%;
+    }
+    .outer_wrap{
+        padding-top: 40px; 
     }
 }
 
@@ -63,7 +123,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 .container .text-muted {
   margin: 20px 0;
