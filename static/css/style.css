@@ -63,7 +63,7 @@ body{
 
 .logform {
     background-color:#FFF;
-    padding: 35px 105px 60px 105px;
+    padding: 35px 105px 40px 105px;
     max-width: 45%;
     margin: auto;
 
@@ -108,14 +108,13 @@ li.ui-state-default:last-child{
     .logform, #message_login{
         max-width: 60%;
     }
-    .logform {padding: 35px 65px 60px 65px;}
+    .logform {padding: 35px 65px 40px 65px;}
 }
 
 @media screen and (max-width: 730px) {
     .logform, #message_login{
         max-width: 90%;
     }
-    .logform {padding: 35px 65px 60px 65px;}
 }
 
 @media screen and (max-width: 500px) {
