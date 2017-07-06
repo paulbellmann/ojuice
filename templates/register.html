@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+<div class="container outer_wrap">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="logform">
+                <h2 class="login_first">Register Your Account</h2>
+                <!-- <h5 class="login_second">secondary text</h5> -->
+                <h5 class="login_third">Enter your <b>username</b> and <b>password.</b></h5>
+                <form action="" method="POST" id="register_form"> {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </span>
+                        <input name="username" id="username" type="text" class="form-control" placeholder="Your Username" aria-describedby="basic-addon1">
+                    </div>
+                        <div class="errorTxtContainer"></div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                      <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        </span>
+                        <input id="password" name="password" type="password" class="form-control" placeholder="Your Password" aria-describedby="basic-addon1">
+                    </div>
+                        <div class="errorTxtContainer"></div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                      <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        </span>
+                        <input name="confirm_password" id="confirm_password" type="password" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1">
+                    </div>
+                        <div class="errorTxtContainer"></div>
+
+                    <button id="subb" class="btn btn-primary btn-lg go_button" style="font-weight: 600;">Register</button>
+                </form>
+                <div class="last">
+                    <!-- <label class="pull-left"><input type="checkbox">&nbsp;Keep me signed in</label> -->
+                    <a class="pull-left" href="{% url 'login' %}">Already have an Account?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="row">
+        <div class="col-md-12">
+        <div id="message_login">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{message.tags|capfirst}}! </strong>{{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+        </div>
+    {% endif %}
+
+    <div class="alert alert-info fade out" id="bsalert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Info!</strong> This alert box could indicate a neutral informative or action
+    </div>
+</div>
+
+<script>
+   $( "#register_form" ).validate({
+      errorPlacement: function(error, element) {
+        error.appendTo( element.parent("div").next("div") );
+        },
+     rules: {
+       username: {
+         required: true,
+         minlength: 4
+       },
+       password: {
+         required: true,
+         minlength: 6
+       },
+       confirm_password: {
+         required: true,
+         minlength: 6,
+         equalTo: "#password"
+       }
+     }
+   });
+
+
+    function toggleAlert(){
+        $(".alert").toggleClass('in out'); 
+        return false; // Keep close.bs.alert event from removing from DOM
+    }
+
+    // $( "#subb" ).click(function() {
+    //     if (form.valid()) {
+    //         console.log('valid');
+    //         if ($("#password") == $("#confirm_password") ) {
+    //             // $("#register_form").submit();
+    //         } else {
+    //             toggleAlert()
+    //         }
+    //     } else {
+    //         console.log('not valid');
+    //     }
+    // });
+</script>
+{% endblock content %}

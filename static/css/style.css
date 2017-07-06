@@ -114,6 +114,10 @@ li.ui-state-default:last-child{
     font-weight: 600;
     color: #606060;
 }
+.errorTxtContainer{
+    padding: 0px 0px 10px 1px;
+    color: #a94442;
+}
 
 @media screen and (max-width: 1024px) {
     .logform, #message_login{
