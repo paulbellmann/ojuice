@@ -12,6 +12,7 @@
                 <h1>{{ title }}</h1>
                 <br>
                 <form class="insert_form" action="{% url 'create' %}">
+                    <input type="hidden" name="quick" value="0">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Title</span>
                         <input name="title" type="text" class="form-control" placeholder="Homework" aria-describedby="basic-addon1">
