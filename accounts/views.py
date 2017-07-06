@@ -12,7 +12,6 @@ from blog.models import Todo
 def register(request):
     if request.method == 'POST':
         if User.objects.filter(username=request.POST['username']).exists():
-            print 'user already exists'
             messages.add_message(request, messages.WARNING, "Username is already in use.")
             return redirect('register')
         user = User.objects.create_user(
