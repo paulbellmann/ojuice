@@ -5,19 +5,24 @@
 {% endblock title %}
 
 {% block content %}
-{% if messages %}
-<div class="container">
-    <div class="messages todolist">
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>{{message.tags|capfirst}}! </strong>{{ message }}
+
+
+<div class="container outer_wrap">
+    {% if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="message_list">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>{{message.tags|capfirst}}! </strong>{{ message }}
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-{% endif %}
-<div class="container">
+    {% endif %}
+
     <div class="row">
         <div class="col-md-12">
             <div class="todolist">

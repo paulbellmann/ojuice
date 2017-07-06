@@ -45,9 +45,13 @@ body{
     font-weight: 600px;
 }
 #message_login{
-    max-width: 40%;
+    max-width: 45%;
     margin: auto;
     padding-top: 20px;
+}
+#message_list{
+    max-width: 60%;
+    margin: auto;
 }
 /* -------------------------------------------------- */
 
@@ -103,15 +107,15 @@ li.ui-state-default:last-child{
 @media screen and (max-width: 1024px) {
     .logform, #message_login{
         max-width: 60%;
-        padding: 35px 65px 60px 65px;
     }
+    .logform {padding: 35px 65px 60px 65px;}
 }
 
 @media screen and (max-width: 730px) {
     .logform, #message_login{
         max-width: 90%;
-        padding: 35px 50px 35px 50px
     }
+    .logform {padding: 35px 65px 60px 65px;}
 }
 
 @media screen and (max-width: 500px) {
