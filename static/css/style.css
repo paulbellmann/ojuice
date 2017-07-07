@@ -121,19 +121,20 @@ li > a {
     font-weight: 700;
 }
 
+@media (max-width: 1300px) {
+    .outer_wrap{ padding-top: 50px; }
+}
 @media screen and (max-width: 1024px) {
     .logform, #message_login{
         max-width: 60%;
     }
     .logform {padding: 35px 65px 40px 65px;}
 }
-
 @media screen and (max-width: 730px) {
     .logform, #message_login{
         max-width: 90%;
     }
 }
-
 @media screen and (max-width: 500px) {
     .todolist, .insform, .logform, #message_login, #message_list{
         max-width: 100%;
