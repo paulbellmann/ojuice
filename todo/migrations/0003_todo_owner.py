@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('blog', '0002_todo_created_at'),
+        ('todo', '0002_todo_created_at'),
     ]
 
     operations = [

@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Todo
 
 
-def blogIndex(request):
+def todoIndex(request):
     #todos = Todo.objects.all()
     if request.user.is_authenticated:
         todos = Todo.objects.filter(owner=request.user.id)

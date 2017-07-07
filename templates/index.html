@@ -69,7 +69,7 @@ $("#sortable").disableSelection();
 
 function myFunction(id) {
     console.log(id);
-    var url = "/blog/change_checked/?ID=" + parseInt(id)
+    var url = "/todo/change_checked/?ID=" + parseInt(id)
     $.get(url, function(data, status) {
         console.log("Status: " + status);
     });
