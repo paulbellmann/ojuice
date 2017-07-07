@@ -15,12 +15,9 @@ def blogIndex(request):
             'title': 'Todos',
             'todos': todos
         }
-        print request.session.session_key
         current_user = request.user
-        print current_user.id
         return render(request, 'index.html', context)
     else:
-        print 'nicht logged in'
         return redirect('login')
 
 @login_required
