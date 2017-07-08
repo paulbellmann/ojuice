@@ -16,6 +16,9 @@ body{
 
 /* quick and dirty
 -------------------------------------------------- */
+.container-fluid{
+    max-width: 60%;
+}
 .outer_wrap{
     padding-top: 100px; 
 }
@@ -134,9 +137,12 @@ li > a {
     .logform, #message_login{
         max-width: 90%;
     }
+    .container-fluid {
+        max-width: 80%;
+    }
 }
 @media screen and (max-width: 500px) {
-    .todolist, .insform, .logform, #message_login, #message_list{
+    .todolist, .insform, .logform, #message_login, #message_list, .container-fluid{
         max-width: 100%;
     }
     .outer_wrap{
