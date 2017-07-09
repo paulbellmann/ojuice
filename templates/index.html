@@ -28,10 +28,9 @@
             <div class="todolist">
                 <h1>{{title}}</h1>
                 <p>{{ discription }}</p>
-                <form action="{% url 'create' %}">
-                    <input name="title" type="text" class="form-control add-todo" placeholder="Add quick todo (#Title Body)">
-                    <input name="quick" type="hidden" value="1">
-                    <input name="body" type="hidden" value=" ">
+                <form action="{% url 'create_quick' %}" method="post">
+                    {% csrf_token %}
+                    {{ form.title }}
                 </form>
                 <hr>
                 <ul id="sortable" class="list-unstyled">

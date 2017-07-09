@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
+from .forms import NameForm, TodoForm, QuickTodoForm
 from .models import Todo
 
 
 def todoIndex(request):
-    #todos = Todo.objects.all()
     if request.user.is_authenticated:
         todos = Todo.objects.filter(owner=request.user.id)
+        form = QuickTodoForm()
         context = {
             'title': 'Todos',
-            'todos': todos
+            'todos': todos,
+            'form': form
         }
-        current_user = request.user
         return render(request, 'index.html', context)
     else:
         return redirect('login')
@@ -33,24 +34,40 @@ def details(request, todo_id):
 
 @login_required
 def new(request):
+    form = TodoForm()
     context = {
-        'title': 'Add new'
+        'title': 'Add new',
+        'form': form
     } 
     return render(request, 'new.html', context)
 
 @login_required
 def create_todo(request):
-    todo = Todo()
-    if int(request.GET['quick']) == 1 and '#' in request.GET['title']:
-        todo.title = request.GET['title'].split("#")[1].split(" ")[0]
-        todo.body = request.GET['title'].split(" ", 1)[1]
-    else:
-        todo.title = request.GET['title']
-        todo.body = request.GET['body']
-    todo.owner = request.user
-    if todo.title and todo.body:
-        todo.save()
-    return redirect('index')
+    form = TodoForm(request.POST)
+    if form.is_valid():
+        todo = Todo.objects.create(
+            title = form.cleaned_data['title'],
+            body = form.cleaned_data['body'],
+            owner = request.user
+        )
+        return redirect('index')
+
+@login_required
+def create_quick_todo(request):
+    form = QuickTodoForm(request.POST)
+    if form.is_valid():
+        if '#' in form.cleaned_data['title']:
+            title = form.cleaned_data['title'].split("#")[1].split(" ")[0]
+            body = form.cleaned_data['title'].split(" ", 1)[1]
+        else:
+            title = form.cleaned_data['title']
+            body = ''
+        todo = Todo.objects.create(
+            title = title,
+            body = body,
+            owner = request.user
+        )
+        return redirect('index')
 
 @login_required
 def del_todo(request, todo_id):
@@ -71,9 +88,6 @@ def modify_todo(request, todo_id):
 @login_required
 def change_checked(request):
     todo = Todo.objects.get(pk=request.GET['ID'])
-    print todo.checked
     todo.checked = not todo.checked
-    print todo.checked
     if request.user == todo.owner:
         todo.save()
-    #return redirect('index')
