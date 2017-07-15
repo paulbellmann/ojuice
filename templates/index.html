@@ -39,9 +39,11 @@
                         <div class="checkbox">
                             <label>
                                 {% if todo.checked %}
-                                    <input checked type="checkbox" onclick="myFunction({{todo.id}})" /><b>{{todo.title}}</b>: {{todo.body}}</label>
+                                    <input checked type="checkbox" onclick="myFunction({{todo.id}})" />
+                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20}} {% else %} {{todo.body|truncatechars:65}} {% endif %}</label>
                                 {% else %}
-                                    <input type="checkbox" onclick="myFunction({{todo.id}})" /><b>{{todo.title}}</b>: {{todo.body}}</label>
+                                    <input type="checkbox" onclick="myFunction({{todo.id}})" />
+                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20}} {% else %} {{todo.body|truncatechars:65}} {% endif %}</label>
                                 {% endif %}
                             <div class="pull-right">
                                 <a href="{% url 'detail' todo.id %}" id="left_pencil">
