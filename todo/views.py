@@ -9,13 +9,19 @@ from .models import Todo
 
 
 def todoIndex(request):
+    ua = request.META.get('HTTP_USER_AGENT', '').lower()
+    if ua.find("iphone") > 0 or ua.find("ipad") > 0 or ua.find("android") > 0:
+        mobile = True
+    else:
+        mobile = False
     if request.user.is_authenticated:
         todos = Todo.objects.filter(owner=request.user.id)
         form = QuickTodoForm()
         context = {
             'title': 'Todos',
             'todos': todos,
-            'form': form
+            'form': form,
+            'mobile': mobile
         }
         return render(request, 'index.html', context)
     else:
