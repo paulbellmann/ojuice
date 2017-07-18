@@ -88,8 +88,7 @@ body{
     padding-bottom:20px;
     text-align:center;
 }
-/*
-.form-control{
+/*.form-control{
     border-radius:0;
 }*/
 li.ui-state-default{
@@ -141,13 +140,16 @@ li > a {
     .container-fluid {
         max-width: 80%;
     }
+    .newTask {
+        max-width: 85%;
+    }
 }
 @media screen and (max-width: 500px) {
     .todolist, .insform, .logform, #message_login, #message_list, .container-fluid{
         max-width: 100%;
     }
     .outer_wrap{
-        padding-top: 40px; 
+        padding-top: 5px; 
     }
     .logform {
         padding: 20px 20px 10px 20px;

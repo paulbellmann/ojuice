@@ -23,7 +23,7 @@ class TodoForm(forms.Form):
     }
 
 class QuickTodoForm(forms.Form):
-    title = forms.CharField(max_length=30)
+    title = forms.CharField(max_length=285)
     title.widget.attrs = {
         'class': 'form-control add-todo',
         'placeholder': 'Add quick todo (#Title Body)'

@@ -37,7 +37,7 @@
                     {% for todo in todos %}
                     <li class="ui-state-default">
                         <div class="checkbox">
-                            <label>
+                            <label class="newTask">
                                 {% if todo.checked %}
                                     <input checked type="checkbox" onclick="myFunction({{todo.id}})" />
                                     <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20}} {% else %} {{todo.body|truncatechars:65}} {% endif %}</label>
