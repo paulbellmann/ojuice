@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from .forms import NameForm, TodoForm, QuickTodoForm
@@ -56,7 +56,7 @@ def create_todo(request):
             body = form.cleaned_data['body'],
             owner = request.user
         )
-        return redirect('index')
+    return redirect('index')
 
 @login_required
 def create_quick_todo(request):
@@ -73,14 +73,14 @@ def create_quick_todo(request):
             body = body,
             owner = request.user
         )
-        return redirect('index')
+    return redirect('index')
 
 @login_required
 def del_todo(request, todo_id):
     todo = Todo.objects.get(pk=todo_id)
     if request.user == todo.owner:
         todo.delete()
-    return redirect('index')
+    return HttpResponse("OK")
 
 @login_required
 def modify_todo(request, todo_id):
@@ -97,3 +97,4 @@ def change_checked(request):
     todo.checked = not todo.checked
     if request.user == todo.owner:
         todo.save()
+    return HttpResponse("OK")
