@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
-from .forms import NameForm, TodoForm, QuickTodoForm
+from .forms import TodoForm, QuickTodoForm
 from .models import Todo
 
 
@@ -32,40 +32,40 @@ def details(request, todo_id):
     details = Todo.objects.get(pk=todo_id)
     context = {
         'title': 'Details',
-        'discription': 'genauere hinweise',
         'details': details
     }
-
-    return render(request, 'detail.html', context)
-
-@login_required
-def new(request):
-    form = TodoForm()
-    context = {
-        'title': 'Add new',
-        'form': form
-    } 
-    return render(request, 'new.html', context)
+    if request.user == details.owner:
+        return render(request, 'detail.html', context)
+    else:
+        return redirect('index')
 
 @login_required
 def create_todo(request):
-    form = TodoForm(request.POST)
-    if form.is_valid():
-        todo = Todo.objects.create(
-            title = form.cleaned_data['title'],
-            body = form.cleaned_data['body'],
-            owner = request.user
-        )
-    return redirect('index')
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            todo = Todo.objects.create(
+                title = form.cleaned_data['title'],
+                body = form.cleaned_data['body'],
+                owner = request.user
+            )
+        return redirect('index')
+    else:
+        form = TodoForm()
+        context = {
+            'title': 'Add new',
+            'form': form
+        } 
+        return render(request, 'new.html', context)
 
 @login_required
 def create_quick_todo(request):
     form = QuickTodoForm(request.POST)
     if form.is_valid():
-        if '#' in form.cleaned_data['title']:
-            title = form.cleaned_data['title'].split("#")[1].split(" ")[0]
-            body = form.cleaned_data['title'].split(" ", 1)[1]
-        else:
+        try:
+            title = form.cleaned_data['title'].split(" ")[0]
+            body = form.cleaned_data['title'].split(" ")[1]
+        except IndexError:
             title = form.cleaned_data['title']
             body = ''
         todo = Todo.objects.create(
