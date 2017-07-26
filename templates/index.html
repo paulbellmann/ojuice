@@ -5,8 +5,6 @@
 {% endblock title %}
 
 {% block content %}
-
-
 <div class="container outer_wrap">
     {% if messages %}
     <div class="row">
@@ -40,10 +38,10 @@
                             <label class="newTask">
                                 {% if todo.checked %}
                                     <input checked type="checkbox" onclick="myFunction({{todo.id}})" />
-                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20}} {% else %} {{todo.body|truncatechars:65}} {% endif %}</label>
+                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20|urlize}} {% else %} {{todo.body|truncatechars:65|urlize}} {% endif %}</label>
                                 {% else %}
                                     <input type="checkbox" onclick="myFunction({{todo.id}})" />
-                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20}} {% else %} {{todo.body|truncatechars:65}} {% endif %}</label>
+                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20|urlize}} {% else %} {{todo.body|truncatechars:65|urlize}} {% endif %}</label>
                                 {% endif %}
                             <div class="pull-right">
                                 <a href="{% url 'detail' todo.id %}" id="left_pencil">
@@ -64,7 +62,9 @@
         </div>
     </div>
 </div>
+{% endblock content %}
 
+{% block javascript %}
 <script>
     $("#sortable").sortable();
     $("#sortable").disableSelection();
@@ -88,4 +88,4 @@
     };
 
 </script>
-{% endblock content %}
+{% endblock javascript %}
