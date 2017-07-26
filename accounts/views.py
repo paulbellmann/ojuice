@@ -11,6 +11,7 @@ from todo.models import Todo
 
 def register(request):
     if request.method == 'POST':
+        # register new account
         if User.objects.filter(username=request.POST['username']).exists():
             messages.add_message(request, messages.WARNING, "Username is already in use.")
             return redirect('register')
@@ -23,10 +24,7 @@ def register(request):
             title ='Add Todo', body ='Try either Add new or quick todo',
             owner = user
         )
-        todo = Todo.objects.create(
-            title ='Share', body ='Tell your friends about ojuice!',
-            owner = user
-        )
+        # login new account
         user = authenticate(
             request,
             username=request.POST['username'],
@@ -37,11 +35,13 @@ def register(request):
         return redirect('index')
     else:
         if not request.user.is_authenticated:
+        # show register form
             context = {
                 'title': 'Register'
             }
             return render(request, 'register.html', context)
         else:
+        # already logged in
             messages.add_message(request, messages.WARNING, "First you need to log out.")
             return redirect('index')
 
@@ -52,6 +52,7 @@ def log_in(request):
     if not request.user.is_authenticated:
         return render(request, 'login.html', context)
     else:
+        messages.add_message(request, messages.INFO, "Already logged in.")
         return redirect('index')
 
 def log_on(request):
