@@ -63,6 +63,9 @@ body{
     padding-right: 5px;
     text-decoration: none;
 }
+.todo_remove {
+    cursor: pointer;
+}
 
 .logform {
     background-color:#FFF;
