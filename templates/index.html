@@ -36,13 +36,8 @@
                     <li class="ui-state-default">
                         <div class="checkbox">
                             <label class="newTask">
-                                {% if todo.checked %}
-                                    <input checked type="checkbox" onclick="myFunction({{todo.id}})" />
-                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20|urlize}} {% else %} {{todo.body|truncatechars:65|urlize}} {% endif %}</label>
-                                {% else %}
-                                    <input type="checkbox" onclick="myFunction({{todo.id}})" />
-                                    <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20|urlize}} {% else %} {{todo.body|truncatechars:65|urlize}} {% endif %}</label>
-                                {% endif %}
+                                <input {% if todo.checked %}checked{% endif %} type="checkbox" onclick="myTest('{{todo.id}}')" />
+                                <b>{{todo.title}}</b>: {% if mobile %} {{todo.body|truncatechars:20|urlize}} {% else %} {{todo.body|truncatechars:65|urlize}} {% endif %}</label>
                             <div class="pull-right">
                                 <a href="{% url 'detail' todo.id %}" id="left_pencil">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -74,14 +69,14 @@
             $(this).remove();
         });
         $("#counted_todos").text($("#counted_todos").text() - 1)
-        var url = "/todo/delete/" + parseInt($(this).attr('id')) + "/"
+        var url = "/todo/delete/" + $(this).attr('id') + "/"
         $.get(url, function(data, status) {
             console.log("Status: " + status);
         });
     });
 
-    function myFunction(id) {
-        var url = "/todo/change_checked/?ID=" + parseInt(id)
+    function myTest(hash_id) {
+        var url = "/todo/change_checked/" + hash_id + "/"
         $.get(url, function(data, status) {
             console.log("Status: " + status);
         });
