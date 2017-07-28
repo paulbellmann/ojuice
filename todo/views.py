@@ -67,7 +67,7 @@ def create_quick_todo(request):
     if form.is_valid():
         try:
             title = form.cleaned_data['title'].split(" ")[0]
-            body = form.cleaned_data['title'].split(" ")[1]
+            body = form.cleaned_data['title'].split(" ", 1)[1]
         except IndexError:
             title = form.cleaned_data['title']
             body = ''
@@ -98,8 +98,8 @@ def modify_todo(request, todo_id):
 
 
 @login_required
-def change_checked(request):
-    todo = Todo.objects.get(pk=request.GET['ID'])
+def change_checked(request, todo_id):
+    todo = Todo.objects.get(pk=todo_id)
     todo.checked = not todo.checked
     if request.user == todo.owner:
         todo.save()
