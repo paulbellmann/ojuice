@@ -56,9 +56,7 @@ body{
     max-width: 60%;
     margin: auto;
 }
-.todolist {
-    margin-bottom: 50px;
-}
+
 /* -------------------------------------------------- */
 
 
@@ -93,6 +91,9 @@ body{
     margin:0;
     padding-bottom:20px;
     text-align:center;
+}
+.todolist {
+    margin-bottom: 50px;
 }
 /*.form-control{
     border-radius:0;
