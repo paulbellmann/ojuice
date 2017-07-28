@@ -27,6 +27,7 @@ def todoIndex(request):
     else:
         return redirect('login')
 
+
 @login_required
 def details(request, todo_id):
     details = Todo.objects.get(pk=todo_id)
@@ -39,15 +40,16 @@ def details(request, todo_id):
     else:
         return redirect('index')
 
+
 @login_required
 def create_todo(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
             todo = Todo.objects.create(
-                title = form.cleaned_data['title'],
-                body = form.cleaned_data['body'],
-                owner = request.user
+                title=form.cleaned_data['title'],
+                body=form.cleaned_data['body'],
+                owner=request.user
             )
         return redirect('index')
     else:
@@ -55,8 +57,9 @@ def create_todo(request):
         context = {
             'title': 'Add new',
             'form': form
-        } 
+        }
         return render(request, 'new.html', context)
+
 
 @login_required
 def create_quick_todo(request):
@@ -69,11 +72,12 @@ def create_quick_todo(request):
             title = form.cleaned_data['title']
             body = ''
         todo = Todo.objects.create(
-            title = title,
-            body = body,
-            owner = request.user
+            title=title,
+            body=body,
+            owner=request.user
         )
     return redirect('index')
+
 
 @login_required
 def del_todo(request, todo_id):
@@ -81,6 +85,7 @@ def del_todo(request, todo_id):
     if request.user == todo.owner:
         todo.delete()
     return HttpResponse("OK")
+
 
 @login_required
 def modify_todo(request, todo_id):
@@ -90,6 +95,7 @@ def modify_todo(request, todo_id):
     if request.user == todo.owner:
         todo.save()
     return redirect('index')
+
 
 @login_required
 def change_checked(request):
