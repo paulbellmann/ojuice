@@ -46,7 +46,7 @@ def create_todo(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
-            todo = Todo.objects.create(
+            Todo.objects.create(
                 title=form.cleaned_data['title'],
                 body=form.cleaned_data['body'],
                 owner=request.user
@@ -71,7 +71,7 @@ def create_quick_todo(request):
         except IndexError:
             title = form.cleaned_data['title']
             body = ''
-        todo = Todo.objects.create(
+        Todo.objects.create(
             title=title,
             body=body,
             owner=request.user
