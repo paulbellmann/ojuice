@@ -1,5 +1,6 @@
 from django import forms
 
+
 class TodoForm(forms.Form):
     title = forms.CharField(max_length=30)
     title.widget.attrs = {
@@ -13,6 +14,7 @@ class TodoForm(forms.Form):
         'placeholder': 'Page 1337',
         'rows': '5'
     }
+
 
 class QuickTodoForm(forms.Form):
     title = forms.CharField(max_length=285)

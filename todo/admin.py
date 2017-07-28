@@ -9,4 +9,5 @@ from .models import Todo
 class TodoAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'body', 'owner', 'created_at')
 
+
 admin.site.register(Todo, TodoAdmin)
