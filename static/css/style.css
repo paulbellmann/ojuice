@@ -56,6 +56,9 @@ body{
     max-width: 60%;
     margin: auto;
 }
+.todolist {
+    margin-bottom: 50px;
+}
 /* -------------------------------------------------- */
 
 
