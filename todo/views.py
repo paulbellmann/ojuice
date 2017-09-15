@@ -15,7 +15,7 @@ def todoIndex(request):
     else:
         mobile = False
     if request.user.is_authenticated:
-        todos = Todo.objects.filter(owner=request.user.id)
+        todos = Todo.objects.filter(owner=request.user)
         form = QuickTodoForm()
         context = {
             'title': 'Todos',
@@ -35,7 +35,7 @@ def details(request, todo_id):
         'title': 'Details',
         'details': details
     }
-    if request.user == details.owner:
+    if request.user.todo_set.filter(pk=todo_id).exists():
         return render(request, 'detail.html', context)
     else:
         return redirect('index')
@@ -46,11 +46,12 @@ def create_todo(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
-            Todo.objects.create(
+            a1 = Todo(
                 title=form.cleaned_data['title'],
-                body=form.cleaned_data['body'],
-                owner=request.user
+                body=form.cleaned_data['body']
             )
+            a1.save()
+            a1.owner.add(request.user)
         return redirect('index')
     else:
         form = TodoForm()
@@ -71,18 +72,19 @@ def create_quick_todo(request):
         except IndexError:
             title = form.cleaned_data['title']
             body = ''
-        Todo.objects.create(
+        a1 = Todo(
             title=title,
-            body=body,
-            owner=request.user
+            body=body
         )
+        a1.save()
+        a1.owner.add(request.user)
     return redirect('index')
 
 
 @login_required
 def del_todo(request, todo_id):
     todo = Todo.objects.get(pk=todo_id)
-    if request.user == todo.owner:
+    if request.user.todo_set.filter(pk=todo_id).exists():
         todo.delete()
     return HttpResponse("OK")
 
@@ -92,8 +94,10 @@ def modify_todo(request, todo_id):
     todo = Todo.objects.get(pk=todo_id)
     todo.title = request.GET['title']
     todo.body = request.GET['body']
-    if request.user == todo.owner:
+    if request.user.todo_set.filter(pk=todo_id).exists():
         todo.save()
+    else:
+        print "lol"
     return redirect('index')
 
 
@@ -101,6 +105,6 @@ def modify_todo(request, todo_id):
 def change_checked(request, todo_id):
     todo = Todo.objects.get(pk=todo_id)
     todo.checked = not todo.checked
-    if request.user == todo.owner:
+    if request.user.todo_set.filter(pk=todo_id).exists():
         todo.save()
     return HttpResponse("OK")

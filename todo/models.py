@@ -12,7 +12,8 @@ class Todo(models.Model):
     body = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     checked = models.BooleanField(default=False)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ManyToManyField(User)
     id = HashidAutoField(primary_key=True)
 
     def __str__(self):
