@@ -108,3 +108,9 @@ def change_checked(request, todo_id):
     if request.user.todo_set.filter(pk=todo_id).exists():
         todo.save()
     return HttpResponse("OK")
+
+@login_required
+def accept_invite(request, todo_id):
+    todo = Todo.objects.get(pk=todo_id)
+    todo.owner.add(request.user)
+    return HttpResponse("OK")
