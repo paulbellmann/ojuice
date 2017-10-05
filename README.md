@@ -4,6 +4,8 @@
 
 ![app screenshot](http://i.imgur.com/HN0fP6V.png)
 
+![app gif](./ojuice.gif)
+
 ## how to
 
 1. `$ git clone https://github.com/paulbellmann/ojuice.git`
