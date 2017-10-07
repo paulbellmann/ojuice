@@ -4,7 +4,9 @@
 
 ![app gif](./ojuice.gif)
 
-## how to
+## How to run this application on your system : 
+
+Just run following commands -
 
 1. `$ git clone https://github.com/paulbellmann/ojuice.git`
 2. `$ cd ojuice`
