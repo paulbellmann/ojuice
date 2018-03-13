@@ -61,9 +61,6 @@
 
 {% block javascript %}
 <script>
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
-
     $(".todo_remove").on('click', function() {
         $(this).parent().parent().parent().hide('slow', function() {
             $(this).remove();
