@@ -1,3 +1,7 @@
 Django==1.11.3
 django-hashid-field==1.2.3
 hashids==1.2.0
+gunicorn==19.7.1
+dj-database-url==0.5.0
+psycopg2==2.7.4
+whitenoise==3.3.1
