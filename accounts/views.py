@@ -23,8 +23,7 @@ def register(request):
             request.POST['password']
         )
         todo = Todo.objects.create(
-            title='Add Todo', body='Try either Add new or quick todo',
-            owner=user
+            title='Add Todo', body='Try either Add new or quick todo'
         )
         # login new account
         user = authenticate(
