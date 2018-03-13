@@ -7,7 +7,7 @@
 ## Test it out
 
 Try this [demo](https://ojuice.herokuapp.com/) and test by yourself.
-Either create a new user or try `demo` and pw `demo`
+Either create a new user or try `demo` and pw `qwertz`
 
 ## How to run this application on your system : 
 
