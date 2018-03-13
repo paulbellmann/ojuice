@@ -2,3 +2,4 @@ ENV/
 venv/
 .DS_Store
 .idea
+local_settings.py
