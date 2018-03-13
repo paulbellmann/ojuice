@@ -4,6 +4,11 @@
 
 ![app gif](./ojuice.gif)
 
+## Test it out
+
+Try this [demo](https://ojuice.herokuapp.com/) and test by yourself.
+Either create a new user or try `demo` and pw `demo`
+
 ## How to run this application on your system : 
 
 Just run following commands -
