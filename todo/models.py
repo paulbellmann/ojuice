@@ -21,7 +21,7 @@ class Todo(models.Model):
 
 class Rel(models.Model):
     rel = models.CharField(max_length=30)
-    count = models.SmallIntegerField()
+    count = models.SmallIntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def countUp(self):
