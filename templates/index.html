@@ -23,7 +23,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="todolist">
+            <div class="todolist box-shadow">
                 <h1>{{title}}</h1>
                 <p>{{ discription }}</p>
                 <form action="{% url 'create_quick' %}" method="post">
@@ -31,7 +31,7 @@
                     {{ form.title }}
                 </form>
                 <hr>
-                <ul id="sortable" class="list-unstyled">
+                <ul class="list-unstyled">
                     {% for todo in todos %}
                     <li class="ui-state-default">
                         <div class="checkbox">
@@ -51,7 +51,7 @@
                     {% endfor %}
                 </ul>
                 <div class="todo-footer">
-                    <strong><span class="count-todos" id="counted_todos">{{todos|length}}</span></strong> Items Left
+                    <span class="text-muted"><strong id="counted_todos">{{todos|length}}</strong> Items Left</span>
                 </div>
             </div>
         </div>

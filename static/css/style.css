@@ -75,7 +75,7 @@ body{
     margin: auto;
 
     border-radius: 3px;
-    box-shadow: 0 0 0 1px #d8d8d8;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
 }
 
 .todolist, .insform{
@@ -85,7 +85,7 @@ body{
     margin: auto;
 
     border-radius: 3px;
-    box-shadow: 0 0 0 1px #d8d8d8;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
 }
 .todolist h1, .insform h1 {
     margin:0;
@@ -114,7 +114,7 @@ li.ui-state-default:last-child{
     padding: 10px 20px;
 }
 .navbar_button{
-    box-shadow: inset 0 0 0 2px #404B55;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05)
     border-radius: 4px;
     padding: 8px 10px;
 }
