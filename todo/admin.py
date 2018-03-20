@@ -10,7 +10,7 @@ class TodoAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'body', 'created_at')
 
 class RelAdmin(admin.ModelAdmin):
-    list_display = ('rel', 'created_at')
+    list_display = ('rel', 'count', 'created_at')
 
 
 admin.site.register(Todo, TodoAdmin)
