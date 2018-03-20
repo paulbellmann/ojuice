@@ -18,3 +18,7 @@ class Todo(models.Model):
 
     def __str__(self):
         return "%s: %s" % (self.title, self.body)
+
+class Rel(models.Model):
+    rel = models.CharField(max_length=30)
+    created_at = models.DateTimeField(auto_now_add=True)

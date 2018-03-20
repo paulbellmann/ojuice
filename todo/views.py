@@ -5,10 +5,14 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from .forms import TodoForm, QuickTodoForm
-from .models import Todo
+from .models import Todo, Rel
 
 
 def todoIndex(request):
+    rel = request.GET.get('rel', '')
+    if rel:
+        Rel.objects.create(rel=rel)
+
     ua = request.META.get('HTTP_USER_AGENT', '').lower()
     if ua.find("iphone") > 0 or ua.find("ipad") > 0 or ua.find("android") > 0:
         mobile = True
