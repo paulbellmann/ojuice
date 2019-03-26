@@ -2,7 +2,7 @@
 
 > Manage your Todos in a simple, refreshing, juicy way
 
-![web screenshot](./ojuice.gif)
+![web screenshot](.screenshots/screenshot_01.png)
 
 ## Getting Started
 
@@ -60,3 +60,5 @@ See also the list of [contributors](https://github.com/paulbellmann/ojuice/contr
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+![web gif](.screenshots/ojuice.gif)
