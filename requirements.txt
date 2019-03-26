@@ -1,4 +1,4 @@
-Django==1.11.3
+django>=1.11.19
 django-hashid-field==1.2.3
 hashids==1.2.0
 gunicorn==19.7.1
