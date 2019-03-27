@@ -4,6 +4,10 @@
 
 ![web screenshot](screenshots/screenshot_01.png)
 
+## Test it out
+
+* [Demo](https://ojuice.herokuapp.com/?rel=github) – Try this demo and test by yourself. Either create a new user or try demo and pw qwertz
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -46,10 +50,6 @@ Deploy on [heroku](https://www.heroku.com/) with [django-heroku](https://devcent
 * [Django](https://www.djangoproject.com/) - The web framework for perfectionists with deadlines
 * [pip](https://pypi.org/project/pip/) - The tool for installing Python packages
 * [Bootstrap](https://getbootstrap.com/) - The most popular HTML, CSS, and JavaScript framework
-
-## Test it out
-
-* [Demo](https://ojuice.herokuapp.com/?rel=github) – Try this demo and test by yourself. Either create a new user or try demo and pw qwertz
 
 ## Authors
 
